@@ -4,6 +4,7 @@ import {
   BlockStack,
   Checkbox,
   Text,
+  Image,
   useApi,
   useApplyAttributeChange,
   useInstructions,
@@ -35,16 +36,7 @@ function Extension() {
 
   // 3. Render a UI
   return (
-    <BlockStack border={"dotted"} padding={"tight"}>
-      <Banner title="Image-Option">
-        {translate("welcome", {
-          target: <Text emphasis="italic">{extension.target}</Text>,
-        })}
-      </Banner>
-      <Checkbox onChange={onCheckboxChange}>
-        {translate("iWouldLikeAFreeGiftWithMyOrder")}
-      </Checkbox>
-    </BlockStack>
+    <Image source="https://cdn.shopify.com/s/files/1/0937/4574/2105/files/Happy_Customer.png?v=1744190687" />
   );
 
   async function onCheckboxChange(isChecked) {

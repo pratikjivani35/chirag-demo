@@ -3,7 +3,7 @@
 client_id = "561acdc26da0f302ff0d62c153050859"
 name = "chirag-demo"
 handle = "chirag-demo"
-application_url = "https://advise-enters-levitra-must.trycloudflare.com"
+application_url = "https://secret-zip-lighter-oral.trycloudflare.com"
 embedded = true
 
 [build]
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://advise-enters-levitra-must.trycloudflare.com/auth/callback",
-  "https://advise-enters-levitra-must.trycloudflare.com/auth/shopify/callback",
-  "https://advise-enters-levitra-must.trycloudflare.com/api/auth/callback"
+  "https://secret-zip-lighter-oral.trycloudflare.com/auth/callback",
+  "https://secret-zip-lighter-oral.trycloudflare.com/auth/shopify/callback",
+  "https://secret-zip-lighter-oral.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
