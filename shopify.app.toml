@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "561acdc26da0f302ff0d62c153050859"
+name = "chirag-demo"
+handle = "chirag-demo"
+application_url = "https://advise-enters-levitra-must.trycloudflare.com"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://advise-enters-levitra-must.trycloudflare.com/auth/callback",
+  "https://advise-enters-levitra-must.trycloudflare.com/auth/shopify/callback",
+  "https://advise-enters-levitra-must.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
