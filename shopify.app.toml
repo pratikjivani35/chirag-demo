@@ -3,7 +3,7 @@
 client_id = "561acdc26da0f302ff0d62c153050859"
 name = "chirag-demo"
 handle = "chirag-demo"
-application_url = "https://dawn-checking-sol-top.trycloudflare.com"
+application_url = "https://pine-applying-flip-thus.trycloudflare.com"
 embedded = true
 
 [build]
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://dawn-checking-sol-top.trycloudflare.com/auth/callback",
-  "https://dawn-checking-sol-top.trycloudflare.com/auth/shopify/callback",
-  "https://dawn-checking-sol-top.trycloudflare.com/api/auth/callback"
+  "https://pine-applying-flip-thus.trycloudflare.com/auth/callback",
+  "https://pine-applying-flip-thus.trycloudflare.com/auth/shopify/callback",
+  "https://pine-applying-flip-thus.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
