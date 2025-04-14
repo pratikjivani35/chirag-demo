@@ -1,26 +1,60 @@
 import {
   reactExtension,
   Banner,
-  BlockStack,
-  Checkbox,
   Text,
+  Heading,
+  BlockStack,
   Image,
   useApi,
-  useApplyAttributeChange,
   useInstructions,
   useTranslate,
 } from "@shopify/ui-extensions-react/checkout";
 
+import { useEffect, useState } from "react";
+
 // 1. Choose an extension target
-export default reactExtension("purchase.checkout.block.render", () => (
-  <Extension />
-));
+export default reactExtension(
+  "purchase.checkout.block.render", 
+  () => <Extension />
+);
 
 function Extension() {
   const translate = useTranslate();
   const { extension } = useApi();
+  const {shop} = useApi();
   const instructions = useInstructions();
-  const applyAttributeChange = useApplyAttributeChange();
+
+  const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+    async function fetchImage() {
+      const shopDomain = shop.myshopifyDomain;
+
+      if (!shopDomain) return;
+
+      try {
+        const res = await fetch(
+          `https://risingsteel.com.au/shopifyapp/image-editor/get_image.php?shop=${shopDomain}`
+        );
+
+        console.log("res === ", res);
+        
+        const data = await res.json();
+
+        if (data.status === "success" && data.image_url) {
+          setImageUrl(data.image_url);
+        } else {
+          // fallback image
+          setImageUrl("https://placehold.co/1400x200?text=No+Image&font=poppins");
+        }
+      } catch (err) {
+        console.error("Failed to fetch image:", err);
+        setImageUrl("https://placehold.co/1400x200?text=Error+Loading+Image&font=poppins");
+      }
+    }
+
+    fetchImage();
+  }, [extension.shop?.domain]);
 
 
   // 2. Check instructions for feature availability, see https://shopify.dev/docs/api/checkout-ui-extensions/apis/cart-instructions for details
@@ -36,16 +70,12 @@ function Extension() {
 
   // 3. Render a UI
   return (
-    <Image source="https://cdn.shopify.com/s/files/1/0937/4574/2105/files/Happy_Customer.png?v=1744190687" />
-  );
+    <BlockStack>
+      <Text>This is the Text..... {shop.myshopifyDomain}</Text>
+      
+      {imageUrl && <Heading accessibilityRole="header">{imageUrl}</Heading>}
 
-  async function onCheckboxChange(isChecked) {
-    // 4. Call the API to modify checkout
-    const result = await applyAttributeChange({
-      key: "requestedFreeGift",
-      type: "updateAttribute",
-      value: isChecked ? "yes" : "no",
-    });
-    console.log("applyAttributeChange result", result);
-  }
+      <Image source="https://cdn.shopify.com/s/files/1/0937/4574/2105/files/Happy_Customer.png?v=1744190687" />
+    </BlockStack>
+  );
 }

@@ -23,6 +23,7 @@ export default function App() {
           Home
         </Link>
         <Link to="/app/additional">Additional page</Link>
+        <Link to="/app/image_ex">Image Edit</Link>
       </NavMenu>
       <Outlet />
     </AppProvider>

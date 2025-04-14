@@ -36,14 +36,14 @@ function Extension() {
   // 3. Render a UI
   return (
     <BlockStack border={"dotted"} padding={"tight"}>
-      <Banner title="checkout-upsell">
+      {/* <Banner title="checkout-upsell">
         {translate("welcome", {
           target: <Text emphasis="italic">{extension.target}</Text>,
         })}
       </Banner>
       <Checkbox onChange={onCheckboxChange}>
         {translate("iWouldLikeAFreeGiftWithMyOrder")}
-      </Checkbox>
+      </Checkbox> */}
     </BlockStack>
   );
 

@@ -33,7 +33,7 @@ function Extension() {
   // 3. Render UI content
   return (
     <BlockLayout rows={[30, "fill"]}>
-      <View padding="none">
+      {/* <View padding="none">
         <Heading accessibilityRole="header" inlineAlignment="center" level="1">
           Why Over 270k+ People Love Glamrdip
         </Heading>
@@ -55,7 +55,7 @@ function Extension() {
             </BlockStack>
           </View>
         </InlineLayout>
-      ))}
+      ))} */}
     </BlockLayout>
   );
 }
